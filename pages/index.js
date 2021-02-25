@@ -1,12 +1,12 @@
 import phones from '../phones.js';
 import Phone from '../components/Phone';
+import Layout from '../components/Layout'
 
 
 
 
 
-export default function Home() {
-  return (
+  const content = (
     <div>
       <h2>Cyber Bar's Cell Phone Repair</h2>
 
@@ -30,4 +30,6 @@ export default function Home() {
       `}</style>
     </div>
   )
+  export default function Home() {
+    return <Layout content={content} />
 }

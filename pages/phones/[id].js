@@ -1,20 +1,25 @@
 import Head from 'next/head'
+import Layout from '../../components/Layout'
 import phones from '../../phones'
 import '../index'
 
 export default function Phone(props) {
     return (
-        <div>
-            <Head>
-            <title>{props.phone.title}</title>
-            </Head>
-            <img src={props.phone.picture} height='100px' width='100px' alt='Phone picture' />
-            <p>
-            {props.phone.type}
-            </p>
-            <p>{props.phone.title}</p>
-            <p>{props.phone.description}</p>
-      </div>
+        <Layout
+            content={
+                <div>
+                    <Head>
+                    <title>{props.phone.title}</title>
+                    </Head>
+                    <img src={props.phone.picture} height='100px' width='100px' alt='Phone picture' />
+                    <p>
+                    {props.phone.type}
+                    </p>
+                    <p>{props.phone.title}</p>
+                    <p>{props.phone.description}</p>
+                </div>
+            }
+        />
     )
   }
 
