@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 
 export default function Phone(props) {
-    console.log(props)
+    //console.log(props)
 
     return (
       <Link href='/phones/[id]' as={'/phones/' + props.id}>

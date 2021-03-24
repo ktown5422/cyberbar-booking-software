@@ -22,7 +22,7 @@ export default function Phone(props) {
                     <p>{props.phone.description}</p>
                     </article>
                     <aside>
-                        <h2>Choose a date and time for a repair</h2>
+                        <h2>Click the Box to Set Appointment</h2>
                         <BasicDateTimePicker />
                         <h2>Total Cost for Booking</h2>
                         <p>{props.phone.price}</p>
@@ -42,7 +42,6 @@ export default function Phone(props) {
                         border: 1px solid #ccc;
                         padding: 20px;
                         }
-
                         button {
                             background-color: rgb(0, 0, 204);
                             color: white;
@@ -52,7 +51,7 @@ export default function Phone(props) {
                             height: 40px;
                             border-radius: 4px;
                             cursor: pointer;
-                          }
+                        }
                     `}</style>
                 </div>
             }

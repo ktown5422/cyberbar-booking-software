@@ -16,7 +16,7 @@ import {
         {/*<DateTimePicker clearable label="Next Appointment" inputVariant="outlined" value={selectedDate} disablePast onChange={handleDateChange} />*/}
         <DateTimePicker
           clearable
-          label="Set an Appointment" 
+          //label="Set an Appointment" 
           inputVariant="outlined"
           value={clearedDate}
           disablePast
