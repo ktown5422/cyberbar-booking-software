@@ -3,8 +3,14 @@ import Layout from '../../components/Layout'
 import phones from '../../phones'
 import BasicDateTimePicker from '../../components/BasicDateTimePicker'
 import '../index'
+import { useStoreActions } from 'easy-peasy'
+
 
 export default function Phone(props) {
+    const setShowLoginModal = useStoreActions(
+        (actions) => actions.modals.setShowLoginModal
+      )
+      
     return (
         <Layout
             content={
@@ -26,7 +32,7 @@ export default function Phone(props) {
                         <BasicDateTimePicker />
                         <h2>Total Cost for Booking</h2>
                         <p>{props.phone.price}</p>
-                        <button className='reserve'>Reserve</button>
+                        <button className='reserve' onClick={() => {setShowLoginModal()}}>Reserve</button> 
                     </aside>
 
                     <style jsx>{`

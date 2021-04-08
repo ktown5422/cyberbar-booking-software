@@ -1,7 +1,15 @@
 import Link from 'next/link'
+import { useStoreActions } from 'easy-peasy'
 
 
 export default function Header(props) {
+    const setShowLoginModal = useStoreActions(
+      (actions) => actions.modals.setShowLoginModal
+    )
+    const setShowRegistrationModal = useStoreActions(
+      (actions) => actions.modals.setShowRegistrationModal
+    )
+  
     return (
       <div className='nav-container'>
         <Link href='/'>
@@ -14,12 +22,12 @@ export default function Header(props) {
             <ul>
                 <li>
                     <Link href='/register'>
-                    <a>Sign up</a>
+                    <a href='#' onClick={() => setShowRegistrationModal()}>Sign up</a>
                     </Link>
                 </li>
                 <li>
                     <Link href='/login'>
-                    <a>Log in</a>
+                    <a href='#' onClick={() => setShowLoginModal()}>Log in</a>
                     </Link>
                 </li>
             </ul>
