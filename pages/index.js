@@ -1,6 +1,9 @@
 import phones from '../phones.js';
 import Phone from '../components/Phone';
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
+import Cookies from 'cookies';
+import { useStoreActions } from 'easy-peasy';
+import { useEffect } from 'react';
 
 
 

@@ -55,7 +55,7 @@ export default async (req, res) => {
   }
 
   const cookies = new Cookies(req, res)
-  cookies.set('nextbnb_session', sessionToken, {
+  cookies.set('cyberbarbookingsoftware_session', sessionToken, {
     httpOnly: true, // true by default
   })
 
