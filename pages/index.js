@@ -33,6 +33,27 @@ import { useEffect } from 'react';
       `}</style>
     </div>
   )
-  export default function Home() {
+  
+  export default function Home({ cyberbarbookingsoftware_session }) {
+    const setLoggedIn = useStoreActions((actions) => actions.login.setLoggedIn)
+  
+    useEffect(() => {
+      if (cyberbarbookingsoftware_session) {
+        setLoggedIn(true)
+      }
+    }, [])
+  
     return <Layout content={content} />
-}
+  }
+  
+  export async function getServerSideProps({ req, res, query }) {
+    const cookies = new Cookies(req, res)
+    const cyberbarbookingsoftware_session = cookies.get('cyberbarbookingsoftware_session')
+  
+    return {
+      props: {
+        cyberbarbookingsoftware_session: cyberbarbookingsoftware_session || null,
+      },
+    }
+  }
+
