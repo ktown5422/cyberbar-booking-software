@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useStoreActions } from 'easy-peasy'
+import { useStoreState, useStoreActions } from 'easy-peasy'
 
 
 export default function Header(props) {
@@ -9,6 +9,9 @@ export default function Header(props) {
     const setShowRegistrationModal = useStoreActions(
       (actions) => actions.modals.setShowRegistrationModal
     )
+
+    const loggedIn = useStoreState((state) => state.login.loggedIn)
+    const setLoggedIn = useStoreActions((actions) => actions.login.setLoggedIn)
   
     return (
       <div className='nav-container'>
@@ -18,21 +21,26 @@ export default function Header(props) {
             </a>
         </Link>
 
+        {loggedIn ? (
+        <nav>
+          <ul>
+            <li>
+              <a>Logged in</a>
+            </li>
+          </ul>
+        </nav>
+      ) : (
         <nav>
             <ul>
                 <li>
-                    <Link href='/register'>
                     <a href='#' onClick={() => setShowRegistrationModal()}>Sign up</a>
-                    </Link>
                 </li>
                 <li>
-                    <Link href='/login'>
                     <a href='#' onClick={() => setShowLoginModal()}>Log in</a>
-                    </Link>
                 </li>
             </ul>
         </nav>
-  
+      )}
         <style jsx>{`
           ul {
             margin: 0;

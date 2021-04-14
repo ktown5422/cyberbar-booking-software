@@ -47,4 +47,5 @@ User.prototype.isPasswordValid = async function (password) {
   return await bcrypt.compare(password, this.password)
 }
 
-export { sequelize, User }
+// export { sequelize, User } run this first then after table is created delete User
+export { sequelize }

@@ -4,12 +4,23 @@ import phones from '../../phones'
 import BasicDateTimePicker from '../../components/BasicDateTimePicker'
 import '../index'
 import { useStoreActions } from 'easy-peasy'
+import Cookies from 'cookies'
+import { useState, useEffect } from 'react'
 
 
 export default function Phone(props) {
     const setShowLoginModal = useStoreActions(
         (actions) => actions.modals.setShowLoginModal
-      )
+    )
+    
+    const setLoggedIn = useStoreActions((actions) => actions.login.setLoggedIn)
+
+    // useEffect(() => {
+    //   if (cyberbarbooking_session) {
+    //        setLoggedIn(true)
+    //   }
+    // }, [])
+
       
     return (
         <Layout
@@ -67,12 +78,15 @@ export default function Phone(props) {
 
 
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ req, res, query }) {
     const { id } = query
+    const cookies = new Cookies(req, res)
+    const  cyberbarbookingsoftware_session = cookies.get('cyberbarbookingsoftware_session')
 
     return { 
         props: {
             phone: phones.filter((phone) => phone.id === parseInt(id))[0],
+            cyberbarbookingsoftware_session: cyberbarbookingsoftware_session || null,
         },
     }   
 }

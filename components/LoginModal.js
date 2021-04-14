@@ -15,10 +15,10 @@ export default function LoginModal(props) {
       email,
       password,
     })
-    console.log(response)
 
     if (response.data.status === 'error') {
       alert(response.data.message)
+      return
     }
 
     setLoggedIn(true)
