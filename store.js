@@ -1,5 +1,7 @@
 import { createStore, action } from 'easy-peasy'
 
+// this is a comment
+
 export default createStore({
     login: {
       loggedIn: false,
